@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Multi-Player Snake - By Alexandre Autret</title>
+    <link rel="stylesheet" type="text/css" href="css/snake.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="gameView">
+    <div class="connectionBox box ">
+        <div class="player">
+            <p>How many players want to play ?</p>
+
+            <div class="radioBox">
+                <label for="one_player"><img src="images/one_player.png" /></label>
+                <input type="radio" name="player"  id="one_player" value="1" checked="checked" />
+            </div>
+            <div class="radioBox">
+                <label for="two_player"><img src="images/two_players.png" /></label>
+                <input type="radio" name="player"  id="two_player" value="2"  checked="checked"/>
+            </div>
+            <div class="radioBox">
+                <label for="four_player"><img src="images/four_players.png" /></label>
+                <input type="radio" name="player"  id="four_player" value="4"  />
+            </div>
+        </div>
+        <div class="screen">
+            <p>Do you want to share or split the screen ?</p>
+
+            <div class="radioBox">
+                <label for="screen_share"><img src="images/snake_share_screen.png" /></label>
+                <input type="radio" name="screen"  id="screen_share" value="share" checked="checked" />
+            </div>
+            <div class="radioBox">
+                <label for="screen_split"><img id="screen_split_image" src="images/snake_split_screen_2.png" /></label>
+                <input type="radio" name="screen" id="screen_split" value="split" />
+            </div>
+        </div>
+
+        <div class="command">
+            <p>Do you want to share or split the snake command ?</p>
+
+            <div class="radioBox">
+                <label for="command_share"><img src="images/snake_share_command.png" /></label>
+                <input type="radio" name="command"  id="command_share" value="share" checked="checked" />
+            </div>
+            <div class="radioBox">
+                <label for="command_split"><img id="command_split_image" src="images/snake_split_command_2.png" /></label>
+                <input type="radio" name="command" id="command_split" value="split" />
+            </div>
+        </div>
+
+
+        <div  id="createRoom" class="button"> Create my game ! </div>
+
+        <div id="joinRoomDiv">
+            <p>Your friend already created a game ? Enter the room Id and join him</p>
+
+            <input type="text" id="roomId"/><div  id="joinRoom" class="button"> Join ! </div>
+
+        </div>
+    </div>
+    <div class="readyBox box hide">
+        <div id="displayPlayerNumber">
+            You are the player 1
+        </div>
+        <div id="displayRoomId">
+
+        </div>
+    </div>
+
+    <div id="waitingOtherPlayers" class="hide">
+        Waiting for other players !
+    </div>
+    <canvas id="canvas"  class="hide"></canvas>
+    <div class="hide directionBlock">
+        <div class="direction button" data-type="left">Left</div>
+        <div class="direction button" data-type="right">Right</div>
+        <div class="direction button" data-type="up">Up</div>
+        <div class="direction button" data-type="down">Down</div>
+        <div style="clear: both"></div>
+    </div>
+    <div class="hide debugging-stuff">
+
+            food position : <span id="foodPosisition">X : Y:</span>
+            <br/>snake position : <span id="snakePosisition">X : Y:</span>
+            <br/>Longueur : <span id="snakeLength">4</span>
+            <br/>notif : <span id="notif"></span>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- Jquery -->
+<script src="js/jquery.min.js"></script>
+<script src="js/socket.io.js"></script>
+<script src="js/socketUrl.js" type="text/javascript"></script>
+<script src="js/snake.js" type="text/javascript"></script>
+
+</body>
+</html>

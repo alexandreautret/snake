@@ -1,0 +1,10 @@
+{
+  "name": "Snake",
+  "description": "Simple multi player snake with command and screen sharing options",
+  "version": "1.0.0",
+  "private": false,
+  "dependencies": {
+    "express": "3.x",
+    "socket.io": "0.9.16"
+  }
+}
