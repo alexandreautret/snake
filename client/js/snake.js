@@ -386,12 +386,12 @@ $(document).ready(function(){
 
   })
 
- var direction = "right";
   //Lets add the keyboard controls now
   $(document).keydown(function(e){
     if(start){
+      var direction;
       var key = e.which;
-      var oldDirection = direction;
+      var oldDirection = d; // get the actual direction
       //We will add another clause to prevent reverse gear
       if(key == "37" && oldDirection != "right") direction = "left";
       else if(key == "38" && oldDirection != "down")  direction = "up";
@@ -409,17 +409,15 @@ $(document).ready(function(){
         }
         // Send the new position to other players
         socket.emit('direction', snakeInfos);
-      } else {
-        //if the user is not allowed to use the key, reset the old key
-        direction = oldDirection;
       }
     }
   })
 
   $('.direction').on('click',function(e){
-    if(start)
+    if(start){
+      var direction;
       var theDirection = this.getAttribute('data-type');
-      var oldDirection = direction;
+      var oldDirection = d; // get the actual direction
       //We will add another clause to prevent reverse gear
       if(theDirection == "left" && oldDirection != "right") direction = "left";
       else if(theDirection == "up" && oldDirection != "down")  direction = "up";
@@ -436,11 +434,8 @@ $(document).ready(function(){
         }
         // Send the new position to other players
         socket.emit('direction', snakeInfos);
-      } else {
-        //if the user is not allowed to use the key, reset the old key
-        direction = oldDirection;
       }
-
+    }
   });
   /**
    * Change the direction of the snake
